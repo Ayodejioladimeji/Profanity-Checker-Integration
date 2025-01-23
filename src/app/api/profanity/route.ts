@@ -1,11 +1,32 @@
 // src/app/api/profanity/route.ts
 
+/* eslint-disable */
+
 import { NextRequest, NextResponse } from "next/server";
 import { checkProfanity } from "@/lib/profanityFilter";
 import { ProfanitySettings } from "@/types/settings";
+import Cors from "cors";
 
-export async function POST(req: NextRequest) {
+Cors({
+  origin: [
+    "http://localhost:3000",
+    "http://localhost:3001",
+    "https://telex.im",
+    "https://staging.telex.im",
+    "https://telex-auth.vercel.app",
+    "https://profanity-checker-omega.vercel.app",
+  ],
+  methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
+  allowedHeaders: ["Content-Type", "Authorization"],
+  credentials: true,
+});
+
+/* eslint-disable */
+
+export async function POST(req: NextRequest, res: NextResponse) {
   try {
+    // await runMiddleware(req, res, cors);
+
     const { text, settings }: { text: string; settings: ProfanitySettings } =
       await req.json();
 

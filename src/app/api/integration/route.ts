@@ -13,7 +13,8 @@ export async function GET() {
       app_logo:
         "https://res.cloudinary.com/devsource/image/upload/v1737510989/pngtree-no-cursing-sign-png-image_6610915_meqkww.png",
       app_name: "Profanity Checker",
-      app_url: "https://profanity-checker-omega.vercel.app/api/integration/",
+      app_url: "https://profanity-checker-omega.vercel.app/api/profanity/",
+      target_url: "https://profanity-checker-omega.vercel.app/api/profanity/",
       background_color: "#ffffff",
     },
     is_active: false,
